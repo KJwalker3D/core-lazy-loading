@@ -3,28 +3,23 @@ import { Vector3 } from '@dcl/sdk/math'
 import { SubSceneComp } from './components'
 import { nftCollection, createPainting, NFTdata } from './nft'
 import * as utils from '@dcl-sdk/utils'
-import { scene1active } from './subSceneSetup'
+
+export let scene1active = true
 
 
-
-export function createSubScene(parentPos: Entity, id: number) {
+export function createLazyArea(parentPos: Entity, id: number) {
   const entity = engine.addEntity()
 
   Transform.create(entity, {
     parent: parentPos
   })
-  SubSceneComp.create(entity, {
-    showing: false,
-    originalPos: Vector3.create(0, 0, 0)
-  })
+ 
 
   const box = engine.addEntity()
   Transform.create(box, { parent: parentPos, scale: Vector3.create(8, 5, 14) })
 
-  //MeshRenderer.setBox(box)
   let createdPaintings: Entity[] = []
 
-  VisibilityComponent.create(box, { visible: false })
 
   utils.triggers.addTrigger(
     box,

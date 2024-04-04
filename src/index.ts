@@ -1,7 +1,7 @@
-import { createScene2 } from './scene2'
+import { creatAllLazyAreas } from "./scene2";
 
 export function main() {
-createScene2()
+creatAllLazyAreas()
 
 
 }

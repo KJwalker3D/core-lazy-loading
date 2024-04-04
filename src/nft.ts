@@ -1,6 +1,6 @@
 import { Entity, Transform, NftFrameType, NftShape, TransformType, engine } from '@dcl/sdk/ecs'
 import { Vector3, Quaternion, Color4 } from '@dcl/sdk/math'
-import { scene1active } from './subSceneSetup'
+import { scene1active } from './scene1'
 
 export type NFTdata = {
   room: number
@@ -209,7 +209,6 @@ export const nftCollection: NFTdata[] = [
     contract: '0xc1f4b0eea2bd6690930e6c66efd3e197d620b9c2',
     tokenId: '8'
   },
-  //start krypto kitties
 
   {
     room: 7,
@@ -269,8 +268,8 @@ export function createPainting(
         position: position.position,
         parent: parent
       })
-    //engine.addEntity(entity)
     return entity
+
   } else {
     const address: string = 'urn:decentraland:ethereum:erc721:0x06012c8cf97bead5deae237070f9587f8e7a266d:1631847'
     const entity = engine.addEntity()
@@ -287,8 +286,8 @@ export function createPainting(
         position: position.position,
         parent: parent
       })
-    //engine.addEntity(entity)
-    return entity
+
+      return entity
   }
 }
 
